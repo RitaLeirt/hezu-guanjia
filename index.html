@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>合租生活管家 · 让合租更清爽</title>
+  <meta name="description" content="合租生活管家：费用AA分摊、清洁值日排班、公共物品登记提醒、室友公约，一站式解决合租生活协作难题。" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- 顶部栏 -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-logo">🏠</span>
+      <span class="brand-name">合租生活管家</span>
+    </div>
+    <div class="room-switch" id="roomSwitch"></div>
+    <div class="topbar-actions">
+      <button class="btn btn-ghost" data-action="manage-room">⚙️ 房间</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- 侧边导航 -->
+    <nav class="sidenav" id="sidenav">
+      <button class="nav-item active" data-view="overview"><span class="nav-ico">📊</span><span class="nav-txt">概览</span></button>
+      <button class="nav-item" data-view="expenses"><span class="nav-ico">💰</span><span class="nav-txt">费用分摊</span></button>
+      <button class="nav-item" data-view="cleaning"><span class="nav-ico">🧹</span><span class="nav-txt">清洁排班</span></button>
+      <button class="nav-item" data-view="items"><span class="nav-ico">🛒</span><span class="nav-txt">公共物品</span></button>
+      <button class="nav-item" data-view="pact"><span class="nav-ico">📜</span><span class="nav-txt">室友公约</span></button>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="content" id="content"></main>
+  </div>
+
+  <!-- 移动端底部导航 -->
+  <nav class="bottomnav" id="bottomnav">
+    <button class="bnav-item active" data-view="overview"><span>📊</span>概览</button>
+    <button class="bnav-item" data-view="expenses"><span>💰</span>费用</button>
+    <button class="bnav-item" data-view="cleaning"><span>🧹</span>清洁</button>
+    <button class="bnav-item" data-view="items"><span>🛒</span>物品</button>
+    <button class="bnav-item" data-view="pact"><span>📜</span>公约</button>
+  </nav>
+
+  <!-- 弹窗 -->
+  <div class="modal-mask" id="modalMask" hidden>
+    <div class="modal" id="modal"></div>
+  </div>
+
+  <!-- 轻提示 -->
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
