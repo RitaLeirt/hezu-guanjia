@@ -43,13 +43,22 @@ function addDays(str, n){ const d = new Date(str+'T00:00:00'); d.setDate(d.getDa
 function daysFromToday(str){ const a = new Date(str+'T00:00:00'); const b = new Date(todayStr()+'T00:00:00'); return Math.round((a-b)/86400000); }
 function monthKey(str){ return str.slice(0,7); }
 
-/* ---------- 存储 ---------- */
+/* ---------- 存储（容错：localStorage 不可用时回退内存） ---------- */
+let _lsOK = true;
+try { localStorage.setItem('__hezu_t','1'); localStorage.removeItem('__hezu_t'); }
+catch(e){ _lsOK = false; }
+const _mem = {};
 let DB = load();
 function load(){
-  try{ const r = JSON.parse(localStorage.getItem(DB_KEY)); if(r) return r; }catch(e){}
+  try{ if(_lsOK){ const r = JSON.parse(localStorage.getItem(DB_KEY)); if(r) return r; } }catch(e){}
+  try{ if(_mem[DB_KEY]) return JSON.parse(_mem[DB_KEY]); }catch(e){}
   return { currentRoomId:null, rooms:[] };
 }
-function save(){ localStorage.setItem(DB_KEY, JSON.stringify(DB)); }
+function save(){
+  const s = JSON.stringify(DB);
+  if(_lsOK){ try{ localStorage.setItem(DB_KEY, s); return; }catch(e){ _lsOK = false; } }
+  _mem[DB_KEY] = s;
+}
 
 function getRoom(id){ return DB.rooms.find(r => r.id === id); }
 function curRoom(){ return getRoom(DB.currentRoomId); }
