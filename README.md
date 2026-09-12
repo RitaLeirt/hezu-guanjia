@@ -21,14 +21,18 @@ python3 -m http.server 8123
 # 浏览器打开 http://localhost:8123
 ```
 
-## 部署到腾讯云开发 CloudBase（静态托管）
-1. 在 IDE 中登录并选择云开发环境（需已开通腾讯云并创建云开发环境）。
-2. 调用 `tcb` 集成的 `uploadFiles` 工具，将以下文件上传至静态托管根目录：
-   - `index.html`
-   - `css/styles.css`
-   - `js/app.js`
-3. 通过 `envQuery` 的 `hosting` 动作获取静态网站托管域名（长期稳定、可公开访问）。
-4. 部署后访问 `https://<env-id>.tcloudbaseapp.com/` 即可。
+## 部署（已上线）
+- **平台**：GitHub Pages（公开、长期稳定、域名不变）
+- **仓库**：https://github.com/RitaLeirt/hezu-guanjia
+- **访问地址**：https://ritaleirt.github.io/hezu-guanjia/
+
+后续在同一仓库 `main` 分支持续迭代、推送即可，链接域名保持不变。
+
+### 本地改完重新发布
+```bash
+git add -A && git commit -m "update" && git push
+# 等待 GitHub Pages 自动构建（约 1 分钟）即可看到更新
+```
 
 ## 目录结构
 ```
