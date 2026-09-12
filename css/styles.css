@@ -132,6 +132,7 @@ input,select,textarea{font-family:inherit;font-size:15px}
 
 /* 弹窗 */
 .modal-mask{position:fixed;inset:0;background:rgba(58,51,48,.45);backdrop-filter:blur(3px);z-index:50;display:flex;align-items:center;justify-content:center;padding:18px}
+.modal-mask[hidden]{display:none}
 .modal{background:#fff;border-radius:22px;width:100%;max-width:480px;max-height:88vh;overflow:auto;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.2)}
 .modal h3{font-size:19px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
 .field{margin-bottom:14px}
